@@ -15,7 +15,8 @@
 @media (max-width: 600px) {
   .main-container{
   margin: auto;
-  padding:15px;
+  margin-left: 10px;
+  /* padding:15px; */
 }
   .doctor-list {
     flex-direction: column;

@@ -80,12 +80,12 @@ const drawerContent = (
             aria-label="open drawer"
             edge="end"
             onClick={() => setMobileOpen(true)}
-            sx={{ position: 'fixed', top: 16, right: 16, zIndex: 1301 }}
+            sx={{ position: 'fixed', top: 16, right: 28, zIndex: 1301 }}
           >
             <MenuIcon />
           </IconButton>
           <Drawer
-            anchor="top"
+            anchor="left"
             variant="temporary"
             open={mobileOpen}
             onClose={() => setMobileOpen(false)}
@@ -94,15 +94,18 @@ const drawerContent = (
               display: { xs: 'block', md: 'none' },
               '& .MuiDrawer-paper': {
                 boxSizing: 'border-box',
-                width: '100vw',
-                maxWidth: '100vw',
+                width: '80vw',
+                maxWidth: 320,
                 background: '#f7f9fa',
                 marginTop: 0,
-                height: '50vh',
+                height: '100vh',
                 position: 'relative',
                 borderTopLeftRadius: 0,
-                borderTopRightRadius: 0,
+                borderBottomLeftRadius: 0,
+                borderTopRightRadius: 18,
+                borderBottomRightRadius: 18,
                 paddingTop: '0',
+                boxShadow: '0 6px 32px 0 #2563eb18',
               },
             }}
           >

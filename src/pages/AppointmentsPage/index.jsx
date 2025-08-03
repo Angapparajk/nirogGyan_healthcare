@@ -93,7 +93,6 @@ const AppointmentsPage = () => {
                 padding: 0,
                 overflow: 'hidden',
                 position: 'relative',
-                marginRight:'25px',
               }}>
                 {/* Accent bar */}
                 <div style={{

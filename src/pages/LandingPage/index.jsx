@@ -35,7 +35,7 @@ const LandingPage = () => {
 
   return (
     <div className="landing-page">
-      <div style={{ maxWidth: 900, margin: '0 auto', marginBottom: 24 }}>
+      <div style={{ maxWidth: 900, margin: '0 auto', marginBottom: 24,marginTop: 24 }}>
         <h1 style={{
           fontWeight: 800,
           color: '#2563eb',
@@ -66,7 +66,8 @@ const LandingPage = () => {
           padding: '18px 18px 10px 18px',
           margin: '0 auto 32px auto',
           maxWidth: 520,
-        }}>
+          marginRight: '15px',
+         }}>
           <SearchBar value={search} onChange={e => setSearch(e.target.value)} />
         </div>
       </div>
