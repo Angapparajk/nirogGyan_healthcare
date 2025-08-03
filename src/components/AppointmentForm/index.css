@@ -20,9 +20,9 @@
   margin-top: 16px;
 }
 
-@media screen and (max-width: 600px) {
+/* @media screen and (max-width: 600px) {
   .appointment-form-container {
-    padding-right: 80px !important;
+    padding-right: 40px !important;
   }
   
-}
+} */

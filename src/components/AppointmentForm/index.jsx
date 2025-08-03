@@ -115,9 +115,8 @@ const AppointmentForm = ({ doctor, doctorId, setDoctor, onSubmit, onCancel }) =>
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
-        paddingRight: 15,
       }}>
-        <form className="appointment-form" onSubmit={handleSubmit} style={{ width: '100%'}} sx={{mt: 5, m: 0}}>
+        <form className="appointment-form" onSubmit={handleSubmit} style={{ width: '100%'}}>
           <Typography variant="h5" gutterBottom sx={{ fontWeight: 700, color: '#2563eb', mb: 2, textAlign: 'center' }}>
             Book Appointment
           </Typography>
