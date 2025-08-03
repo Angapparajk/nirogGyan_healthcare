@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Oval } from 'react-loader-spinner';
+import { CircularProgress } from '@mui/material';
 import DoctorProfile from '../../components/DoctorProfile';
 import './index.css';
 import axios from 'axios';
@@ -25,7 +25,7 @@ const DoctorProfilePage = ({ doctorId, doctor, setDoctor, onBook }) => {
     <div className="doctor-profile-page">
       {loading ? (
         <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', minHeight: 200 }}>
-          <Oval height={60} width={60} color="#2563eb" secondaryColor="#e0eaff" strokeWidth={5} ariaLabel="loading" visible={true} />
+          <CircularProgress size={60} thickness={5} color="primary" />
         </div>
       ) : (
         <DoctorProfile doctor={doctor} onBook={onBook} />

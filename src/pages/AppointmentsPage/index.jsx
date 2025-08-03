@@ -1,7 +1,6 @@
 
 import React, { useEffect, useState } from 'react';
-import { Typography, Box } from '@mui/material';
-import { Oval } from 'react-loader-spinner';
+import { Typography, Box, CircularProgress } from '@mui/material';
 import axios from 'axios';
 import './index.css';
 
@@ -34,7 +33,7 @@ const AppointmentsPage = () => {
       </Box>
       {loading && (
         <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', minHeight: 200 }}>
-          <Oval height={60} width={60} color="#2563eb" secondaryColor="#e0eaff" strokeWidth={5} ariaLabel="loading" visible={true} />
+          <CircularProgress size={60} thickness={5} color="primary" />
         </div>
       )}
       {error && <Typography color="error" sx={{ mb: 2 }}>{error}</Typography>}

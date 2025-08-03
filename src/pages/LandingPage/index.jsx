@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Oval } from 'react-loader-spinner';
+import { CircularProgress } from '@mui/material';
 import DoctorList from '../../components/DoctorList';
 import SearchBar from '../../components/SearchBar';
 import './index.css';
@@ -72,7 +72,7 @@ const LandingPage = () => {
       </div>
       {loading ? (
         <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', minHeight: 200 }}>
-          <Oval height={60} width={60} color="#2563eb" secondaryColor="#e0eaff" strokeWidth={5} ariaLabel="loading" visible={true} />
+          <CircularProgress size={60} thickness={5} color="primary" />
         </div>
       ) : (
         <DoctorList style={{width:'100%', margin:'0 auto'}} doctors={filteredDoctors} onDoctorClick={doctor => navigate(`/doctor/${doctor._id}`)} />
