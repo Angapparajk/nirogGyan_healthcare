@@ -1,0 +1,29 @@
+.doctor-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+.main-container {
+  padding: 15px;
+  margin-left: 0;
+}
+
+@media (max-width: 600px) {
+  .main-container{
+  margin: auto;
+  padding:15px;
+}
+  .doctor-list {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    /* gap: 16px; */
+    /* padding: 0 8px 16px 8px; */
+    width: 100%;
+    box-sizing: border-box;
+  }
+}

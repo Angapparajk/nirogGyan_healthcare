@@ -1,0 +1,28 @@
+.appointment-form-container{
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.appointment-form {
+  max-width: 400px;
+  margin: auto;
+  background: #fff;
+  padding: 16px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  min-height: 320px;
+}
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 16px;
+}
+
+@media screen and (max-width: 600px) {
+  .appointment-form-container {
+    padding-right: 80px !important;
+  }
+  
+}

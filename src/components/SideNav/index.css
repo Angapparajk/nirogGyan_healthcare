@@ -1,0 +1,25 @@
+.MuiDrawer-paper {
+  border-right: 1px solid #e0e0e0;
+}
+
+.MuiListItem-root {
+  background: none !important;
+  border: none !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+}
+
+.MuiListItem-root:hover{
+    cursor: pointer;
+}
+
+.MuiListItem-root:focus {
+  outline: none !important;
+}
+
+.MuiListItemButton-root {
+  background: none !important;
+  border: none !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+}
