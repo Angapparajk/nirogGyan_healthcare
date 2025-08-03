@@ -16,6 +16,7 @@
   text-align: left;
 }
 
+
 @media (max-width: 600px) {
   .appointments-table-desktop {
     display: none !important;
@@ -95,3 +96,5 @@
 .appointments-table tr:last-child td {
   border-bottom: none;
 }
+
+

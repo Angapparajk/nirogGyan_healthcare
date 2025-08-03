@@ -24,10 +24,10 @@ const AppointmentsPage = () => {
   return (
     <div className="appointments-page">
       <Box sx={{ maxWidth: 900, margin: '0 auto', mb: 3}}>
-        <Typography variant="h4" sx={{ fontWeight: 700, color: '#2563eb', mb: 0.5, mt: 2,textAlign: 'center', letterSpacing: 0.5 }}>
+        <Typography variant="h4" sx={{ fontWeight: 700, color: '#2563eb', mb: 0.5, mt: 4,mr:1.5, textAlign: 'center', letterSpacing: 0.5 }}>
           Appointments
         </Typography>
-        <Typography variant="subtitle1" sx={{ color: '#059669', mb: 3, textAlign: 'center', fontWeight: 500 }}>
+        <Typography variant="subtitle1" sx={{ color: '#059669', mb: 3, textAlign: 'center', fontWeight: 500, mr: 2.8}}>
           View all your booked appointments in one place
         </Typography>
       </Box>
