@@ -66,7 +66,6 @@ const LandingPage = () => {
           padding: '18px 18px 10px 18px',
           margin: '0 auto 32px auto',
           maxWidth: 520,
-          marginRight: '15px',
          }}>
           <SearchBar value={search} onChange={e => setSearch(e.target.value)} />
         </div>

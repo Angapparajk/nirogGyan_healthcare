@@ -41,7 +41,7 @@
 @media (max-width: 600px) {
   .doctor-card {
     max-width: 96vw;
-    min-width: 80vw;
+    min-width: 85vw;
     min-height: 150px;
     margin: 8px auto;
     padding-right: 15px;

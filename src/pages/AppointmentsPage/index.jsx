@@ -24,7 +24,7 @@ const AppointmentsPage = () => {
   return (
     <div className="appointments-page">
       <Box sx={{ maxWidth: 900, margin: '0 auto', mb: 3}}>
-        <Typography variant="h4" sx={{ fontWeight: 700, color: '#2563eb', mb: 0.5, mt: 2, textAlign: 'center', letterSpacing: 0.5 }}>
+        <Typography variant="h4" sx={{ fontWeight: 700, color: '#2563eb', mb: 0.5, mt: 2,textAlign: 'center', letterSpacing: 0.5 }}>
           Appointments
         </Typography>
         <Typography variant="subtitle1" sx={{ color: '#059669', mb: 3, textAlign: 'center', fontWeight: 500 }}>
@@ -90,6 +90,8 @@ const AppointmentsPage = () => {
                 boxShadow: '0 4px 18px 0 #2563eb18',
                 background: '#fff',
                 margin: '20px',
+                marginLeft: 0,
+                marginRight: '24px',
                 padding: 0,
                 overflow: 'hidden',
                 position: 'relative',
