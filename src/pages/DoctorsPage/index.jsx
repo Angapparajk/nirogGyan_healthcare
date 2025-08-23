@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { CircularProgress } from '@mui/material';
+import failureimage from '../../assets/failureimage.jpeg';
 import DoctorList from '../../components/DoctorList';
 import SearchBar from '../../components/SearchBar';
 import axios from 'axios';
@@ -12,16 +13,19 @@ const DoctorsPage = () => {
   const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
 
+  const [error, setError] = useState(false);
   useEffect(() => {
     setLoading(true);
     axios.get('https://niroggyan-healthcare.onrender.com/api/doctors')
       .then(res => {
         setDoctors(res.data);
         setLoading(false);
+        setError(false);
       })
       .catch(() => {
         setDoctors([]);
         setLoading(false);
+        setError(true);
       });
   }, []);
 
@@ -74,6 +78,12 @@ const DoctorsPage = () => {
       {loading ? (
         <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', minHeight: 200 }}>
           <CircularProgress size={60} thickness={5} color="primary" />
+        </div>
+      ) : error ? (
+        <div style={{ textAlign: 'center', marginTop: 40 }}>
+          <img src={failureimage} alt="Failed to load" style={{ width: 180, marginBottom: 18, borderRadius: 16, boxShadow: '0 2px 12px #2563eb18' }} />
+          <h2 style={{ color: '#e53935', fontWeight: 700 }}>Failed to load doctors</h2>
+          <div style={{ color: '#888', fontWeight: 500 }}>Please try again later.</div>
         </div>
       ) : (
         <>
