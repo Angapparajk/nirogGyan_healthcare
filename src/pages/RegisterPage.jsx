@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { TextField, Button, Typography, Alert, Box } from '@mui/material';
 import axios from 'axios';
+import Cookies from 'js-cookie';
 
 const RegisterPage = ({ onRegister }) => {
   const [form, setForm] = useState({ name: '', email: '', password: '' });
@@ -11,7 +12,13 @@ const RegisterPage = ({ onRegister }) => {
   const navigate = useNavigate();
 
   const handleChange = e => {
-    setForm({ ...form, [e.target.name]: e.target.value });
+    const { name, value } = e.target;
+    setForm({ ...form, [name]: value });
+    if (name === 'name' && /\d/.test(value)) {
+      setError('Numbers are not allowed in the name field.');
+    } else if (name === 'name') {
+      setError('');
+    }
   };
 
   const handleSubmit = async e => {
@@ -20,6 +27,10 @@ const RegisterPage = ({ onRegister }) => {
     setSuccess('');
     if (!form.name || !form.email || !form.password) {
       setError('All fields are required.');
+      return;
+    }
+    if (/\d/.test(form.name)) {
+      setError('Numbers are not allowed in the name field.');
       return;
     }
     if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(form.email)) {

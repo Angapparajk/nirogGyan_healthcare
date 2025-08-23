@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { TextField, Button, Typography, Alert, Box } from '@mui/material';
+import { TextField, Button, Typography, Alert, Box, CircularProgress } from '@mui/material';
 import axios from 'axios';
+import Cookies from 'js-cookie';
 
 const LoginPage = ({ onLogin }) => {
   const [form, setForm] = useState({ email: '', password: '' });
@@ -23,7 +24,7 @@ const LoginPage = ({ onLogin }) => {
     setLoading(true);
     try {
       const res = await axios.post('https://niroggyan-healthcare.onrender.com/api/users/login', form);
-      localStorage.setItem('token', res.data.token);
+  Cookies.set('token', res.data.token, { expires: 1 });
       if (onLogin) onLogin(res.data.user);
       navigate('/dashboard');
     } catch (err) {
@@ -43,7 +44,10 @@ const LoginPage = ({ onLogin }) => {
         <TextField label="Email" name="email" value={form.email} onChange={handleChange} fullWidth margin="normal" required type="email" />
         <TextField label="Password" name="password" value={form.password} onChange={handleChange} fullWidth margin="normal" required type="password" />
         {error && <Alert severity="error" sx={{ mt: 2 }}>{error}</Alert>}
-        <Button type="submit" variant="contained" color="primary" fullWidth sx={{ mt: 3 }} disabled={loading}>Login</Button>
+        <Button type="submit" variant="contained" color="primary" fullWidth sx={{ mt: 3, display: 'flex', alignItems: 'center', justifyContent: 'center' }} disabled={loading}>
+          Login
+          {loading && <CircularProgress size={18} sx={{ ml: 1, color: '#fff' }} />}
+        </Button>
       </form>
       <Box sx={{ mt: 2, textAlign: 'center' }}>
         Don't have an account?{' '}

@@ -9,6 +9,7 @@ import LocalHospitalIcon from '@mui/icons-material/LocalHospital';
 import EventAvailableIcon from '@mui/icons-material/EventAvailable';
 import MenuIcon from '@mui/icons-material/Menu';
 import { useNavigate } from 'react-router-dom';
+import Cookies from 'js-cookie';
 import { useTheme } from '@mui/material/styles';
 
 const drawerWidth = 220;
@@ -59,28 +60,29 @@ const drawerContent = (
         <ListItemText primary={<span style={{ fontWeight: 700, color: '#f59e42' }}>Appointments</span>} />
       </ListItem>
       {/* Auth links */}
-      {localStorage.getItem('token') ? (
-        <ListItem component="button" onClick={() => {
-          localStorage.removeItem('token');
-          window.dispatchEvent(new Event('storage'));
-          navigate('/login');
-          setMobileOpen(false);
-        }} sx={{ borderRadius: 2, mb: 1, '&:hover': { background: '#ffeaea' } }}>
-          <ListItemIcon sx={{ color: '#e53935', minWidth: 38 }}><span style={{ fontWeight: 700, fontSize: 20 }}>⎋</span></ListItemIcon>
-          <ListItemText primary={<span style={{ fontWeight: 700, color: '#e53935' }}>Logout</span>} />
-        </ListItem>
-      ) : (
-        <>
-          <ListItem component="button" onClick={() => { navigate('/login'); setMobileOpen(false); }} sx={{ borderRadius: 2, mb: 1, '&:hover': { background: '#e0eaff' } }}>
-            <ListItemIcon sx={{ color: '#2563eb', minWidth: 38 }}><span style={{ fontWeight: 700, fontSize: 20 }}>🔑</span></ListItemIcon>
-            <ListItemText primary={<span style={{ fontWeight: 700, color: '#2563eb' }}>Login</span>} />
+        {Cookies.get('token') ? (
+          <ListItem component="button" onClick={() => {
+            Cookies.remove('token');
+            window.dispatchEvent(new Event('storage'));
+            navigate('/login');
+            setMobileOpen(false);
+            window.location.reload();
+          }} sx={{ borderRadius: 2, mb: 1, '&:hover': { background: '#ffeaea' } }}>
+            <ListItemIcon sx={{ color: '#e53935', minWidth: 38 }}><span style={{ fontWeight: 700, fontSize: 20 }}>⎋</span></ListItemIcon>
+            <ListItemText primary={<span style={{ fontWeight: 700, color: '#e53935' }}>Logout</span>} />
           </ListItem>
-          <ListItem component="button" onClick={() => { navigate('/register'); setMobileOpen(false); }} sx={{ borderRadius: 2, mb: 1, '&:hover': { background: '#e0f7ef' } }}>
-            <ListItemIcon sx={{ color: '#059669', minWidth: 38 }}><span style={{ fontWeight: 700, fontSize: 20 }}>✍️</span></ListItemIcon>
-            <ListItemText primary={<span style={{ fontWeight: 700, color: '#059669' }}>Register</span>} />
-          </ListItem>
-        </>
-      )}
+        ) : (
+          <>
+            <ListItem component="button" onClick={() => { navigate('/login'); setMobileOpen(false); }} sx={{ borderRadius: 2, mb: 1, '&:hover': { background: '#e0eaff' } }}>
+              <ListItemIcon sx={{ color: '#2563eb', minWidth: 38 }}><span style={{ fontWeight: 700, fontSize: 20 }}>🔑</span></ListItemIcon>
+              <ListItemText primary={<span style={{ fontWeight: 700, color: '#2563eb' }}>Logout</span>} />
+            </ListItem>
+            <ListItem component="button" onClick={() => { navigate('/register'); setMobileOpen(false); }} sx={{ display: 'none' }}>
+              <ListItemIcon sx={{ color: '#059669', minWidth: 38 }}><span style={{ fontWeight: 700, fontSize: 20 }}>✍️</span></ListItemIcon>
+              <ListItemText primary={<span style={{ fontWeight: 700, color: '#059669' }}>Register</span>} />
+            </ListItem>
+          </>
+        )}
     </List>
   </div>
 );

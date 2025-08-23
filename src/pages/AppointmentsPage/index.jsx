@@ -5,6 +5,7 @@ import failureimage from '../../assets/failureimage.jpeg';
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
 import axios from 'axios';
+import Cookies from 'js-cookie';
 import './index.css';
 
 const AppointmentsPage = () => {
@@ -26,7 +27,7 @@ const AppointmentsPage = () => {
   };
 
   const handleEditSave = async () => {
-    const token = localStorage.getItem('token');
+  const token = Cookies.get('token');
     try {
       await axios.put(`https://niroggyan-healthcare.onrender.com/api/appointments/${editId}`, {
         appointmentTime: editTime,
@@ -60,7 +61,7 @@ const AppointmentsPage = () => {
   }, []);
 
   const fetchAppointments = () => {
-    const token = localStorage.getItem('token');
+  const token = Cookies.get('token');
     let email = '';
     if (token) {
       try {
@@ -95,7 +96,7 @@ const AppointmentsPage = () => {
   };
 
   const handleDeleteConfirm = async () => {
-    const token = localStorage.getItem('token');
+  const token = Cookies.get('token');
     try {
       await axios.delete(`https://niroggyan-healthcare.onrender.com/api/appointments/${deleteId}`, {
         headers: { Authorization: `Bearer ${token}` }
