@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import './index.css';
 import { TextField, Button, Typography, Alert } from '@mui/material';
 import axios from 'axios';
+import Cookies from 'js-cookie';
 
 const AppointmentForm = ({ doctor, doctorId, setDoctor, onSubmit, onCancel }) => {
   const [form, setForm] = useState({ name: '', email: '', datetime: '' });
@@ -40,6 +41,7 @@ const AppointmentForm = ({ doctor, doctorId, setDoctor, onSubmit, onCancel }) =>
 
     setError('');
     try {
+      const token = Cookies.get('token');
       const [date, time] = form.datetime.split('T');
       await axios.post('https://niroggyan-healthcare.onrender.com/api/appointments', {
         doctorId: doctor?._id || doctorId,
@@ -47,6 +49,8 @@ const AppointmentForm = ({ doctor, doctorId, setDoctor, onSubmit, onCancel }) =>
         patientEmail: form.email,
         appointmentDate: date,
         appointmentTime: time,
+      }, {
+        headers: { Authorization: `Bearer ${token}` }
       });
 
       setSubmitted(true);
